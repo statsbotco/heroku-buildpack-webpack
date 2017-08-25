@@ -10,5 +10,11 @@ source $bp_dir/lib/common.sh
 export_env_dir $env_dir
 cd $build_dir
 
+head "Restoring cache"
+restore_cache_directories "$build_dir" "$cache_dir" "node_modules/.cache"
+
 head "Building webpack bundle"
 $(npm bin)/webpack --profile --display-modules
+
+head "Saving cache"
+save_cache_directories "$build_dir" "$cache_dir" "node_modules/.cache"
