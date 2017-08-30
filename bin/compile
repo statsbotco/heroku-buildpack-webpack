@@ -18,6 +18,3 @@ $(npm bin)/webpack --profile --display-modules
 
 head "Saving cache"
 save_cache_directories "$build_dir" "$cache_dir" "node_modules/.cache"
-
-head "Removing node_modules"
-rm -Rf node_modules
