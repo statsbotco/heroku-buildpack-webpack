@@ -13,6 +13,9 @@ cd $build_dir
 head "Restoring cache"
 restore_cache_directories "$build_dir" "$cache_dir" "node_modules/.cache"
 
+head "Prepare relay files"
+$(npm bin)/relay-compiler --src ./ui --schema ./schema.graphql --extensions js jsx
+
 head "Building webpack bundle"
 $(npm bin)/webpack --profile --display-modules
 
